@@ -1,0 +1,39 @@
+.title {
+  border: black solid 5px;
+}
+
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
+.new_challenge {
+  border: blue solid 5px;
+  width: 100px;
+  height: 70px;
+}
+
+.social_media {
+  border: yellow solid 5px;
+  width: 100px;
+  height: 70px;
+}
+
+.profile {
+  border: green solid 5px;
+  width: 100px;
+  height: 70px;
+}
+
+.challenges_list_menu {
+  border: purple solid 5px;
+  width: 100px;
+  height: 70px;
+}
+
+.challenges_list {
+  border: blue solid 5px;
+
+}
