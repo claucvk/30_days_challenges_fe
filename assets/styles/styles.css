@@ -1,3 +1,14 @@
+.placeholder {
+  color: black;
+}
+
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
 .bg-1 {
   background-color: #1abc9c;
   color: #ffffff;
@@ -9,7 +20,7 @@
 }
 
 .bg-3 {
-  background-color: #ffffff;
+  background-color: violet;
   color: #555555;
 }
 
