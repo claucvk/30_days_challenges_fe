@@ -16,8 +16,8 @@ const signUp = function (data) {
   })
 }
 
-const signIn = function (data) {
-  console.log(data)
+const signIn = function(data) {
+  console.log(data);
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',

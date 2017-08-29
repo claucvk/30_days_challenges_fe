@@ -39,66 +39,53 @@
     </nav>
   </header>
   <main>
-    <!-- Registration form. I took it from this link https://bootsnipp.com/snippets/QXpo5 -->
-    <section>
-      <div id="container_demo" class="registration_form">
-        <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-        <a class="hiddenanchor" id="toregister"></a>
-        <a class="hiddenanchor" id="tologin"></a>
-        <div id="wrapper">
-          <div id="login" class="animate form">
-            <form action="mysuperscript.php" autocomplete="on">
-              <h1>Log in</h1>
-              <p>
-                <label for="username" class="uname"> Your email</label>
-                <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com" />
-              </p>
-              <p>
-                <label for="password" class="youpasswd"> Your password </label>
-                <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
-              </p>
-              <p class="keeplogin">
-                <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
-                <label for="loginkeeping">Keep me logged in</label>
-              </p>
-              <p class="login button">
-                <a href="http://cookingfoodsworld.blogspot.in/" target="_blank"></a>
-              </p>
-              <p class="change_link">
-                Not a member yet ?
-                <a href="#toregister" class="to_register">Join us</a>
-              </p>
-            </form>
-          </div>
+    <!-- Registration form -->
+    <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Sign Up / Sign In</button>
 
-          <div id="register" class="animate form">
-            <form action="mysuperscript.php" autocomplete="on">
-              <h1> Sign up </h1>
-              <p>
-                <label for="emailsignup" class="youmail"> Your email</label>
-                <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com" />
-              </p>
-              <p>
-                <label for="passwordsignup" class="youpasswd">Your password </label>
-                <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO" />
-              </p>
-              <p>
-                <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
-                <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO" />
-              </p>
-              <p class="signin button">
-                <input type="submit" value="Sign up" />
-              </p>
-              <p class="change_link">
-                Already a member ?
-                <a href="#tologin" class="to_register"> Go and log in </a>
-              </p>
-            </form>
-          </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
 
-        </div>
-      </div>
-    </section>
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sign Up</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form id="sign-up">
+                      <fieldset>
+                        <input type="text" name="credentials[email]" placeholder="Email">
+                        <input type="password" name="credentials[password]" placeholder="Create Password">
+                        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                        <input type="submit" name="submit" value="Sign Up!">
+                      </fieldset>
+                    </form>
+                  </div>
+                  <div class="modal-header">
+                    <h4 class="modal-title">Sign In</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                      <form id="sign-in">
+                        <fieldset>
+                          <input type="text" name="credentials[email]" placeholder="Email">
+                          <input type="password" name="credentials[password]" placeholder="Password">
+                          <input type="submit" name="submit" value="Sign In!">
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container">
     <!-- Main section. I am connecting the menu section with the content displayed. The UI look I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1000-->
 
     <div id="challenges_list" class="container-fluid bg-1 text-center">
