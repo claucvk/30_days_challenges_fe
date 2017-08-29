@@ -55,9 +55,17 @@ const changePassword = function (data) {
   })
 }
 
+const index = function (data) {
+  return $.ajax({
+    url: app.host + '/challenges',
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  index
 }

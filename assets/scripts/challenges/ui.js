@@ -5,14 +5,13 @@ const app = require('../app.js')
 // This is onSignUp (events)
 const success = (data) => {
   console.log(data)
-  alert('Sign Out succesful')
 }
 
 const failure = (error) => {
   console.error(error)
 }
 
-//SignIn
+// SignIn
 const signInSuccess = (data) => {
   app.user = data.user
   console.log(app)
@@ -20,7 +19,7 @@ const signInSuccess = (data) => {
   // Mostrar un mensaje al usuario de que fue un signin succesful.
 }
 
-//Sign Out
+// Sign Out
 const signOutSuccess = () => {
   app.user = null
   console.log(app)
@@ -29,10 +28,18 @@ const signOutSuccess = () => {
 
 // Change password
 const changePasswordSuccess = () => {
-  console.log("Password Successfully Changed.")
+  console.log('Password Successfully Changed.')
   alert('Password Successfully Changed.')
 }
 
 const onUpdateSuccess = function (data) {
   console.log(data)
+}
+module.exports = {
+  changePasswordSuccess,
+  signOutSuccess,
+  signInSuccess,
+  success,
+  failure,
+  onUpdateSuccess
 }

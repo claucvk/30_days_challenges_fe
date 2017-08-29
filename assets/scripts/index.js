@@ -10,7 +10,7 @@ $(() => {
 
 // On document ready
 $(() => {
-  events.addHandlers()
+  addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file
@@ -18,3 +18,17 @@ $(() => {
 
 // use require without a reference to ensure a file is bundled
 require('./example')
+
+const challengeEvents = require('./challenges/events')
+
+const addHandlers = () => {
+  $('#sign-up').on('submit', challengeEvents.onSignUp)
+  $('#sign-in').on('submit', challengeEvents.onSignIn)
+  $('#sign-out').on('submit', challengeEvents.onSignOut)
+  $('#change-password').on('submit', challengeEvents.onChangePassword)
+  $('#challenges-search').on('submit', challengeEvents.onGetChallenges)
+}
+
+module.exports = {
+  addHandlers
+}
