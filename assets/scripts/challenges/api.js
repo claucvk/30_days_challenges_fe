@@ -62,10 +62,18 @@ const index = function (data) {
   })
 }
 
+const show = function (id) {
+  return $.ajax({
+    url: app.host + '/challenges/' + id,
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  index
+  index,
+  show
 }

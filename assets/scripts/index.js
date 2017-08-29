@@ -27,6 +27,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', challengeEvents.onSignOut)
   $('#change-password').on('submit', challengeEvents.onChangePassword)
   $('#challenges-search').on('submit', challengeEvents.onGetChallenges)
+  $('#challenge-search').on('submit', challengeEvents.onGetChallenge)
 }
 
 module.exports = {

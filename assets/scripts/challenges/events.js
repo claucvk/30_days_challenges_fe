@@ -44,10 +44,25 @@ const onGetChallenges = function (event) {
     .catch(ui.failure)
 }
 
+const onGetChallenge = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const challenge = data.challenge
+
+  if (challenge.id.length !== 0) {
+    api.show(challenge.id)
+      .then(ui.success)
+      .catch(ui.failure)
+  } else {
+    console.log('Please provide a challenge id!')
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
-  onGetChallenges
+  onGetChallenges,
+  onGetChallenge
 }
