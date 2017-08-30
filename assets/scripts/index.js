@@ -28,6 +28,8 @@ const addHandlers = () => {
   $('#change-password').on('submit', challengeEvents.onChangePassword)
   $('#challenges-search').on('submit', challengeEvents.onGetChallenges)
   $('#challenge-search').on('submit', challengeEvents.onGetChallenge)
+  $('#create-challenge').on('submit', challengeEvents.onCreateChallenge)
+  $('#challenge-delete').on('submit', challengeEvents.onDeleteChallenge)
 }
 
 module.exports = {

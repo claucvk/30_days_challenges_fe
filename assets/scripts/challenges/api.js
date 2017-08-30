@@ -69,11 +69,39 @@ const show = function (id) {
   })
 }
 
+const create = function (challengeName, challengeGoal, startDay, endDay, challengeStatus, userId) {
+  console.log()
+  return $.ajax({
+    method: 'POST',
+    url: app.host + '/challenges/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+      'name': challengeName,
+      'goal': challengeGoal,
+      'start_day': startDay,
+      'end_day': endDay,
+      'status': challengeStatus,
+      'user_id': userId
+    }
+  })
+}
+
+const destroy = function (id) {
+  return $.ajax({
+    url: app.host + '/challenges/' + id,
+    method: 'DELETE'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   index,
-  show
+  show,
+  create,
+  destroy
 }

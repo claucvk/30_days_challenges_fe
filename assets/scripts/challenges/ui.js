@@ -35,11 +35,20 @@ const changePasswordSuccess = () => {
 const onUpdateSuccess = function (data) {
   console.log(data)
 }
+
+// Start a new challenge.
+const onCreateSuccess = () => {
+  console.log('New challenge created')
+  alert('New challenge created')
+}
+
+
 module.exports = {
   changePasswordSuccess,
   signOutSuccess,
   signInSuccess,
   success,
   failure,
+  onCreateSuccess,
   onUpdateSuccess
 }
