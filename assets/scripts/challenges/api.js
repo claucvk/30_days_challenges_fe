@@ -69,8 +69,14 @@ const show = function (id) {
   })
 }
 
-const create = function (challengeName, challengeGoal, startDay, endDay, challengeStatus, userId) {
-  console.log()
+const create = function (data) {
+  let status
+  if (data.status === 'on') {
+    status = true
+  } else {
+    status = false
+  }
+  console.log(app)
   return $.ajax({
     method: 'POST',
     url: app.host + '/challenges/',
@@ -78,12 +84,14 @@ const create = function (challengeName, challengeGoal, startDay, endDay, challen
       Authorization: 'Token token=' + app.user.token
     },
     data: {
-      'name': challengeName,
-      'goal': challengeGoal,
-      'start_day': startDay,
-      'end_day': endDay,
-      'status': challengeStatus,
-      'user_id': userId
+      'challenge': {
+        'name': data.name,
+        'goal': data.goal,
+        'start_day': data.start_day,
+        'end_day': data.end_day,
+        'status': status,
+        'user_id': data.userId
+      }
     }
   })
 }

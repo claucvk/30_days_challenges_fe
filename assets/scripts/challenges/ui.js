@@ -42,7 +42,6 @@ const onCreateSuccess = () => {
   alert('New challenge created')
 }
 
-
 module.exports = {
   changePasswordSuccess,
   signOutSuccess,

@@ -62,14 +62,8 @@ const onCreateChallenge = function (event) {
   console.log('test')
   event.preventDefault()
   const data = getFormFields(event.target) // event.target
- console.log($('#name'))
-  const challengeName = $('#name').val()
-  const challengeGoal = $('#goal').val()
-  const startDay = $('#start_day').val()
-  const endDay = $('#end_day').val()
-  const challengeStatus = $('#userId').val()
 
-  api.create(challengeName, challengeGoal, startDay, endDay, challengeStatus)
+  api.create(data)
     .done(ui.success)
     .fail(ui.failure)
 }
