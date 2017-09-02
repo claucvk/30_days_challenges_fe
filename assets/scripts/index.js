@@ -30,6 +30,7 @@ const addHandlers = () => {
   $('#challenge-search').on('submit', challengeEvents.onGetChallenge)
   $('#create-challenge').on('submit', challengeEvents.onCreateChallenge)
   $('#challenge-delete').on('submit', challengeEvents.onDeleteChallenge)
+  $('#challenge-update').on('submit', challengeEvents.onUpdateChallenge)
 }
 
 module.exports = {

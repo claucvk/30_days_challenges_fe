@@ -82,6 +82,18 @@ const onDeleteChallenge = function (event) {
   }
 }
 
+const onUpdateChallenge = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  if (data.challenge.id.length !== 0) {
+    api.update(data)
+      .then(ui.onSuccess)
+      .catch(ui.onError)
+  } else {
+    console.log('challenge update!')
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -90,5 +102,6 @@ module.exports = {
   onGetChallenges,
   onGetChallenge,
   onCreateChallenge,
-  onDeleteChallenge
+  onDeleteChallenge,
+  onUpdateChallenge
 }

@@ -32,14 +32,14 @@ const changePasswordSuccess = () => {
   alert('Password Successfully Changed.')
 }
 
-const onUpdateSuccess = function (data) {
-  console.log(data)
-}
-
 // Start a new challenge.
 const onCreateSuccess = () => {
   console.log('New challenge created')
   alert('New challenge created')
+}
+
+const onUpdateSuccess = function () {
+  console.log('You successfully updated the challenge!')
 }
 
 module.exports = {

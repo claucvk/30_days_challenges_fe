@@ -102,6 +102,22 @@ const destroy = function (id) {
     method: 'DELETE'
   })
 }
+const update = function (data) {
+  return $.ajax({
+    url: app.host + '/challenges/' + data.challenge.id,
+    method: 'PATCH',
+    data: {
+      'challenge': {
+        'name': data.name,
+        'goal': data.goal,
+        'start_day': data.start_day,
+        'end_day': data.end_day,
+        'status': status,
+        'user_id': data.userId
+      }
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -111,5 +127,6 @@ module.exports = {
   index,
   show,
   create,
-  destroy
+  destroy,
+  update
 }
