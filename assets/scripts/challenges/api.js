@@ -16,12 +16,18 @@ const signUp = function (data) {
   })
 }
 
-const signIn = function(data) {
-  console.log(data);
+const signIn = function (data) {
+  console.log(data)
   return $.ajax({
     url: app.host + '/sign-in/',
     method: 'POST',
-    data
+    data: {
+      'credentials': {
+        'email': data.credentials.email,
+        'password': data.credentials.password,
+        'password_confirmation': data.credentials.password
+      }
+    }
   })
 }
 
@@ -56,9 +62,15 @@ const changePassword = function (data) {
 }
 
 const index = function (data) {
+  if (!app.user) {
+    console.log('not log in')
+    return
+  }
+
   return $.ajax({
-    url: app.host + '/challenges',
-    method: 'GET'
+    url: app.host + '/challenges/',
+    method: 'GET',
+    data: {'user_id': app.user.id}
   })
 }
 
