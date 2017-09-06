@@ -38,9 +38,9 @@ const onChangePassword = function (event) {
 
 const onGetChallenges = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
+  // const data = getFormFields(this)
   console.log(api)
-  api.index(data)
+  api.index()
     .then(ui.success)
     .catch(ui.failure)
 }
@@ -60,7 +60,7 @@ const onGetChallenge = function (event) {
 }
 
 const onCreateChallenge = function (event) {
-  console.log('test')
+  console.log('Challenge created')
   event.preventDefault()
   const data = getFormFields(event.target) // event.target
 
