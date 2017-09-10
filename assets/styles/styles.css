@@ -5,10 +5,40 @@ header {
 
 h1 {
   color: white;
-    background-color: rgba(25,25,25, 0.7);
+  background-color: rgba(25,25,25, 0.7);
   padding: 35px 5px 35px 5px;
   margin-left: 100px;
   margin-right: 110px;
   border-radius: 5px;
   font-size: 60px;
+}
+
+#nav_settings {
+  width: 100%;
+  padding: 30px;
+}
+
+#myNavbar {
+  margin: 0 auto;
+  width: 50%;
+}
+
+#sections {
+width: 100%;
+margin-top: -20px;
+}
+
+#section_1 {
+  background: yellow;
+  padding: 30px;
+}
+
+#section_2 {
+  background: green;
+  padding: 30px;
+}
+
+#section_3 {
+  background: violet;
+  padding: 30px;
 }
