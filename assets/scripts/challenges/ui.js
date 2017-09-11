@@ -126,8 +126,18 @@ const onUpdateFailure = (error) => {
 // Get all challenges
 const getAllChallengesSuccess = (data) => {
   console.log(data)
-  const allChallenges = $('#allChallenges')
-  allChallenges.html('challenges').css('color', 'green')
+  const arrayChallenges = []
+  for (const i in data.challenges) {
+    const elementos = 'Challenge Id ' + data.challenges[i].id +
+      ' ' + 'Challenge Name ' + data.challenges[i].name +
+      ' ' + 'Challenge Goal ' + data.challenges[i].goal +
+      ' ' + 'Start day ' + data.challenges[i].start_day +
+      ' ' + 'End day ' + data.challenges[i].end_day +
+      ' ' + 'Challenge Status ' + data.challenges[i].status +
+      '<br>'
+    arrayChallenges.push(elementos)
+  }
+  document.getElementById('allChallenges').innerHTML = arrayChallenges.join(' ')
 }
 
 const getAllChallengesFailure = (error) => {
@@ -138,15 +148,22 @@ const getAllChallengesFailure = (error) => {
 
 // Get one challenge
 const getOneChallengeSuccess = (data) => {
-  console.log(data)
-  const oneChallenge = $('#oneChallenge')
-  oneChallenge.html('challenge').css('color', 'green')
+  console.log(data.challenge.id)
+  const elementos = 'Challenge Id ' + data.challenge.id +
+    ' ' + 'Challenge Name ' + data.challenge.name +
+    ' ' + 'Challenge Goal ' + data.challenge.goal +
+    ' ' + 'Start day ' + data.challenge.start_day +
+    ' ' + 'End day ' + data.challenge.end_day +
+    ' ' + 'Challenge Status ' + data.challenge.status +
+    '<br>'
+  document.getElementById('oneChallenge').innerHTML = elementos
 }
 
 const getOneChallengeFailure = (error) => {
   console.log(error)
   const oneChallengeFail = $('#oneChallengeFail')
   oneChallengeFail.html('Challenge not found. Try again!').css('color', 'red')
+  $('#challenge-id').val('')
 }
 
 // Delete one challenge
