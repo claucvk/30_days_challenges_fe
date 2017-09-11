@@ -1,5 +1,9 @@
-## Back-end repo
-https://github.com/claucvk/30_days_challenges_api
+## Deployed Link
+https://ccvk.me/30_days_challenges_fe/
+
+## API Links
+GitHub Repo: https://github.com/claucvk/30_days_challenges_api
+Herou Deployed: https://immense-sands-36854.herokuapp.com/
 
 ## Project Idea
 I wanted to build an app that will help people to try something new in 30 days.
@@ -24,3 +28,11 @@ Here there is an abstract of Matt Cutts speech where he explains very well what 
 https://goo.gl/photos/q8xWFXf5zzgmE6mb7
 ## Wireframes
 http://i.imgur.com/HrurlWZ.png
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript/ Jquery / AJAX
+
+## Issues
+- Improve UI looks.
