@@ -70,7 +70,6 @@ const changePasswordFailure = (error) => {
 // Start a new challenge.
 const onCreateSuccess = () => {
   console.log('New challenge created')
-  alert('New challenge created')
   const challengeCreated = $('#challengeCreated')
   challengeCreated.html('New challenge created!').css('color', 'blue')
   $('#name-challenge').val('')
