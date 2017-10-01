@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bulma": "^0.5.1",
+    "fullcalendar": "^3.5.1",
     "jquery": "^3.2.1"
   },
   "devDependencies": {

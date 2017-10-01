@@ -14,6 +14,7 @@
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
 </head>
 
 <body class="container-fluid">
@@ -34,7 +35,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sign In/ Sign Up
+            <li class="" id="sign-up-in"><button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sign In/ Sign Up
             <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <div>
@@ -66,13 +67,13 @@
                   </div>
             </li>
             </ul>
-            <li><button type="button" class="btn"><a href="#challenges_list">Challenges</a></button></li>
+            <li class="" id="challenges-list"><button type="button" class="btn"><a href="#challenges_list">Challenges</a></button></li>
 
-            <li><button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button></li>
+            <li class="" id="new-challenge"><button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button></li>
 
-            <li><button type="button" class="btn"><a href="#share">Share</a></button></li>
+              <!-- <li><button type="button" class="btn"><a href="#share">Share</a></button></li> -->
 
-            <li>
+            <li class="" id="profile">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Profile
     <span class="caret"></span></button>
@@ -176,10 +177,12 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
           </div>
         </div>
       </div>
+
       <!-- SECTION 2. New challenge-->
       <div class="container" id="section_2">
         <div id="new_challenge" class="container-fluid bg-2 text-center">
           <h2 class="margin">New Challenge</h2>
+          <p>Please fill all the fields to create a new challenge</p>
           <form id="create-challenge">
             <div class="form-group">
               <label for="usr">Name</label>
@@ -203,6 +206,7 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
             <hr>
             <div class="form-group">
               <label for="usr">User Id</label>
+              <p id="idUser"></p>
               <input type="text" class="form-control" name="userId" placeholder="User Id here..." id="user-id">
             </div>
             <hr>
@@ -221,8 +225,9 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
           </form>
         </div>
       </div>
+
       <!-- SECTION 3. Share social medias-->
-      <div class="container" id="section_3">
+      <!-- <div class="container" id="section_3">
         <div id="share" class="container-fluid bg-3 text-center">
           <h3 class="margin">Share</h3>
           <footer clas="card-footer">
@@ -238,7 +243,7 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
             </p>
           </footer>
         </div>
-      </div>
+      </div> -->
     </div>
     </div>
   </main>
