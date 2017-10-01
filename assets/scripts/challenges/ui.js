@@ -25,6 +25,12 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   app.user = data.user
   console.log(data)
+  $('#sign-up-in').addClass('hidden')
+  $('#challenges-list').removeClass('hidden')
+  $('#new-challenge').removeClass('hidden')
+  $('#profile').removeClass('hidden')
+  $('#section_1').removeClass('hidden')
+  $('#section_2').removeClass('hidden')
   const signIn = $('#signIn')
   signIn.html('Sign In succesful!').css('color', 'green')
   $('#sign-in-email').val('')
@@ -44,8 +50,15 @@ const signInFailure = (error) => {
 const signOutSuccess = () => {
   app.user = null
   console.log(app)
+  $('#sign-up-in').removeClass('hidden')
+  $('#challenges-list').addClass('hidden')
+  $('#new-challenge').addClass('hidden')
+  $('#profile').addClass('hidden')
+  $('#section_1').addClass('hidden')
+  $('#section_2').addClass('hidden')
   const signOut = $('#signOut')
   signOut.html('Sign Out succesful!').css('color', 'green')
+  $('#sign-up-in').removeClass('hidden')
 }
 
 const signOutFailure = (error) => {

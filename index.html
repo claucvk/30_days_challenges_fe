@@ -34,11 +34,10 @@
       </button>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="" id="sign-up-in"><button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sign In/ Sign Up
+          <ul>
+            <center><li class="" id="sign-up-in"><button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sign In/ Sign Up
             <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <div>
                   <h2>Sign Up</h2>
                   <div>
                     <form id="sign-up">
@@ -65,33 +64,38 @@
                     <p id="signIn"></p>
                     <p id="signInFail"></p>
                   </div>
-            </li>
-            </ul>
-            <li class="" id="challenges-list"><button type="button" class="btn"><a href="#challenges_list">Challenges</a></button></li>
+            </li></center>
+          </ul>
+        </ul>
+      </div>
+        <div class="flex-grid">
+          <div class="hidden col" id="challenges-list">
+            <button type="button" class="btn"><a href="#challenges_list">Challenges</a></button>
+          </div>
 
-            <li class="" id="new-challenge"><button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button></li>
+          <div class="hidden col" id="new-challenge">
+            <button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button>
+          </div>
 
-              <!-- <li><button type="button" class="btn"><a href="#share">Share</a></button></li> -->
-
-            <li class="" id="profile">
+          <div class="hidden col" id="profile">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Profile
     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li>
-                    <div>
-                      <h2>Change password</h2>
-                      <form id="change-password">
-                        <fieldset>
-                          <input type="password" name="credentials[old]" placeholder="Old Password" id="old-password">
-                          <input type="password" name="credentials[new]" placeholder="New Password" id="new-password">
-                          <br>
-                          <input type="submit" name="submit" value="Submit Changes">
-                        </fieldset>
-                      </form>
-                      <p id="changePassword"></p>
-                      <p id="changePasswordFail"></p>
-                  </li>
+                    <li>
+                      <div>
+                        <h2>Change password</h2>
+                        <form id="change-password">
+                          <fieldset>
+                            <input type="password" name="credentials[old]" placeholder="Old Password" id="old-password">
+                            <input type="password" name="credentials[new]" placeholder="New Password" id="new-password">
+                            <br>
+                            <input type="submit" name="submit" value="Submit Changes">
+                          </fieldset>
+                        </form>
+                        <p id="changePassword"></p>
+                        <p id="changePasswordFail"></p>
+                    </li>
                   <hr>
                   <li>
                     <div>
@@ -103,19 +107,59 @@
                     </div>
                   </li>
                 </ul>
-            </li>
             </div>
             </div>
-          </ul>
           </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
+
+          <!-- <ul>
+            <li class="hidden" id="challenges-list"><button type="button" class="btn"><a href="#challenges_list">Challenges</a></button></li>
+            <li class="hidden" id="new-challenge"><button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button></li>
+
+            <li class="hidden" id="profile">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Profile
+    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                      <div>
+                        <h2>Change password</h2>
+                        <form id="change-password">
+                          <fieldset>
+                            <input type="password" name="credentials[old]" placeholder="Old Password" id="old-password">
+                            <input type="password" name="credentials[new]" placeholder="New Password" id="new-password">
+                            <br>
+                            <input type="submit" name="submit" value="Submit Changes">
+                          </fieldset>
+                        </form>
+                        <p id="changePassword"></p>
+                        <p id="changePasswordFail"></p>
+                    </li>
+                  <hr>
+                  <li>
+                    <div>
+                      <form class="sign-out" id="sign-out">
+                        <input type="submit" name="submit" value="Sign out!">
+                        <p id="signOut"></p>
+                        <p id="signOutFail"></p>
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+            </div>
+            </div>
+          </li>
+          </ul> -->
+
     <!-- PAGE SECTIONS
 The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1000-->
 
     <!-- SECTION 1. Challenges list-->
     <div class="container" id="sections">
-      <div class="container" id="section_1">
+      <div class="hidden container" id="section_1">
         <div id="challenges_list" class="container-fluid bg-1 text-center">
           <h2 class="margin">Challenges</h2>
           <div class="flex-grid">
@@ -168,7 +212,7 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
                   <br>
                   <label for="usr" id="trueU">Completed?</label>
                   <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
-                  <label class="radio-inline"><input type="radio" name="optradio" id="falseU">Non</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" id="falseU">No</label>
                 </div>
                 <button type="submit" class="btn btn-default">Update Challenge</button>
                 <p id="challengeUpdated"></p>
@@ -179,7 +223,7 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
       </div>
 
       <!-- SECTION 2. New challenge-->
-      <div class="container" id="section_2">
+      <div class="hidden container" id="section_2">
         <div id="new_challenge" class="container-fluid bg-2 text-center">
           <h2 class="margin">New Challenge</h2>
           <p>Please fill all the fields to create a new challenge</p>
@@ -213,7 +257,7 @@ The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1
             <div class="form-group">
               <label for="usr">Completed?</label>
               <label class="radio-inline"><input type="radio" name="optradio" id="true">Yes</label>
-              <label class="radio-inline"><input type="radio" name="optradio" id="false">Non</label>
+              <label class="radio-inline"><input type="radio" name="optradio" id="false">No</label>
               <br>
               <br>
             </div>
