@@ -30,7 +30,7 @@ const signInSuccess = (data) => {
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
   const idUser = $('#idUser')
-  idUser.html('This is your user ID: ' + data.user.id).css('color', 'blue')
+  idUser.html('Your user ID: ' + data.user.id).css('color', 'blue')
 }
 const signInFailure = (error) => {
   console.log(error)
