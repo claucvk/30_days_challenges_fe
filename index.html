@@ -1,296 +1,34 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Try something new in 30 days</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <title>Try something new in 30 days</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Do not add `link` tags-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/styles/styles.css"></link>
 
-  <!-- Do not add `link` tags-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/styles/styles.css"></link>
-
-  <!-- Do not add `script` tags-->
-  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-
-</head>
-
-<body class="container-fluid">
-  <header>
-    <center>
-      <h1>Try something new in 30 days</h1></center>
-  </header>
-  <main>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-default" id="nav_settings">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul>
-            <center><li class="" id="sign-up-in"><button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Sign In/ Sign Up
-            <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                  <h2>Sign Up</h2>
-                  <div>
-                    <form id="sign-up">
-                      <fieldset>
-                        <input type="text" name="credentials[email]" placeholder="Email" id="sign-up-email">
-                        <input type="password" name="credentials[password]" placeholder="Create Password" id="sign-up-password">
-                        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="sign-up-password-confirmation">
-                        <input type="submit" name="submit" value="Sign Up!">
-                      </fieldset>
-                    </form>
-                    <p id="signUp"></p>
-                    <p id="signUpFail"></p>
-                  </div>
-                  <hr>
-                  <h2>Sign In</h2>
-                  <div>
-                    <form id="sign-in">
-                      <fieldset>
-                        <input type="text" name="credentials[email]" placeholder="Email" id="sign-in-email">
-                        <input type="password" name="credentials[password]" placeholder="Password" id="sign-in-password">
-                        <input type="submit" name="submit" value="Sign In!">
-                      </fieldset>
-                    </form>
-                    <p id="signIn"></p>
-                    <p id="signInFail"></p>
-                  </div>
-            </li></center>
-          </ul>
-        </ul>
-      </div>
-        <div class="flex-grid">
-          <div class="hidden col" id="challenges-list">
-            <button type="button" class="btn"><a href="#challenges_list">Challenges</a></button>
-          </div>
-
-          <div class="hidden col" id="new-challenge">
-            <button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button>
-          </div>
-
-          <div class="hidden col" id="profile">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Profile
-    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                      <div>
-                        <h2>Change password</h2>
-                        <form id="change-password">
-                          <fieldset>
-                            <input type="password" name="credentials[old]" placeholder="Old Password" id="old-password">
-                            <input type="password" name="credentials[new]" placeholder="New Password" id="new-password">
-                            <br>
-                            <input type="submit" name="submit" value="Submit Changes">
-                          </fieldset>
-                        </form>
-                        <p id="changePassword"></p>
-                        <p id="changePasswordFail"></p>
-                    </li>
-                  <hr>
-                  <li>
-                    <div>
-                      <form class="sign-out" id="sign-out">
-                        <input type="submit" name="submit" value="Sign out!">
-                        <p id="signOut"></p>
-                        <p id="signOutFail"></p>
-                      </form>
-                    </div>
-                  </li>
-                </ul>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-          <!-- <ul>
-            <li class="hidden" id="challenges-list"><button type="button" class="btn"><a href="#challenges_list">Challenges</a></button></li>
-            <li class="hidden" id="new-challenge"><button type="button" class="btn"><a href="#new_challenge">New Challenge</a></button></li>
-
-            <li class="hidden" id="profile">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">Profile
-    <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>
-                      <div>
-                        <h2>Change password</h2>
-                        <form id="change-password">
-                          <fieldset>
-                            <input type="password" name="credentials[old]" placeholder="Old Password" id="old-password">
-                            <input type="password" name="credentials[new]" placeholder="New Password" id="new-password">
-                            <br>
-                            <input type="submit" name="submit" value="Submit Changes">
-                          </fieldset>
-                        </form>
-                        <p id="changePassword"></p>
-                        <p id="changePasswordFail"></p>
-                    </li>
-                  <hr>
-                  <li>
-                    <div>
-                      <form class="sign-out" id="sign-out">
-                        <input type="submit" name="submit" value="Sign out!">
-                        <p id="signOut"></p>
-                        <p id="signOutFail"></p>
-                      </form>
-                    </div>
-                  </li>
-                </ul>
-            </div>
-            </div>
-          </li>
-          </ul> -->
-
-    <!-- PAGE SECTIONS
-The structure I took it from https://codepen.io/c-lamothe25/pen/XRMwYe?editors=1000-->
-
-    <!-- SECTION 1. Challenges list-->
-    <div class="container" id="sections">
-      <div class="hidden container" id="section_1">
-        <div id="challenges_list" class="container-fluid bg-1 text-center">
-          <h2 class="margin">Challenges</h2>
-          <div class="flex-grid">
-            <div class="col">
-              <h3>Get All Challenges</h3>
-              <form class='challenges' id='challenges-search'>
-                <div class="form-group">
-                </div>
-                <button type="submit" class="btn btn-default">Get All Challenges</button>
-                <p id="allChallenges"></p>
-                <p id="allChallengesFail"></p>
-              </form>
-              <br>
-            </div>
-            <div class="col">
-              <h3>Get One Challenge</h3>
-              <form class='challenges' id='challenge-search'>
-                <div class="form-group">
-                  <input type="text" name="challenge[id]" id="challenge-id" placeholder="Challenge ID Here" class="placeholder">
-                </div>
-                <button type="submit" class="btn btn-default">Get Challenge</button>
-              </form>
-              <p id="oneChallenge"></p>
-              <p id="oneChallengeFail"></p>
-            </div>
-            <br>
-            <div class="col">
-              <h3>Delete One Challenge</h3>
-              <form class='challenges' id='challenge-delete'>
-                <div class="form-group">
-                  <input type="text" name="challenge[id]" id="challenge-id-delete" placeholder="Challenge ID Here" class="placeholder">
-                </div>
-                <button type="submit" class="btn btn-default">Delete Challenge</button>
-              </form>
-              <br>
-              <p id="deleteChallenge"></p>
-              <p id="deleteChallengeFail"></p>
-            </div>
-            <br>
-            <div class="col">
-              <h3>Update One Challenge</h3>
-              <form class='challenges' id='challenge-update'>
-                <div class="form-group">
-                  <input type="text" name="userId" placeholder="User ID Here" class="placeholder" id="user-idU">
-                  <input type="text" name="challenge[id]" placeholder="Challenge ID Here" class="placeholder" id="challenge-idU">
-                  <input type="text" name="name" placeholder="Challenge name Here" class="placeholder" id="name-challengeU">
-                  <input type="text" name="goal" placeholder="Challenge goal Here" class="placeholder" id="goal-challengeU">
-                  <input type="text" name="start_day" placeholder="Start day Here" class="placeholder" id="start-dayU">
-                  <input type="text" name="end_day" placeholder="End day Here" class="placeholder" id="end-dayU">
-                  <br>
-                  <label for="usr" id="trueU">Completed?</label>
-                  <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
-                  <label class="radio-inline"><input type="radio" name="optradio" id="falseU">No</label>
-                </div>
-                <button type="submit" class="btn btn-default">Update Challenge</button>
-                <p id="challengeUpdated"></p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECTION 2. New challenge-->
-      <div class="hidden container" id="section_2">
-        <div id="new_challenge" class="container-fluid bg-2 text-center">
-          <h2 class="margin">New Challenge</h2>
-          <p>Please fill all the fields to create a new challenge</p>
-          <form id="create-challenge">
-            <div class="form-group">
-              <label for="usr">Name</label>
-              <input name="name" type="text" class="form-control" placeholder="Challenge name..." id="name-challenge">
-            </div>
-            <hr>
-            <div class="form-group">
-              <label for="comment">Goal</label>
-              <input name="goal" type="text" class="form-control" placeholder="Challenge goal..." id="goal-challenge">
-            </div>
-            <hr>
-            <div class="form-group">
-              <label for="usr">Start day</label>
-              <input type="text" class="form-control" name="start_day" placeholder="Ex: 2017-09-12" id="start-day">
-            </div>
-            <hr>
-            <div class="form-group">
-              <label for="usr">End day</label>
-              <input type="text" class="form-control" name="end_day" placeholder="Ex: 2017-10-12" id="end-day">
-            </div>
-            <hr>
-            <div class="form-group">
-              <label for="usr">User Id</label>
-              <p id="idUser"></p>
-              <input type="text" class="form-control" name="userId" placeholder="User Id here..." id="user-id">
-            </div>
-            <hr>
-            <div class="form-group">
-              <label for="usr">Completed?</label>
-              <label class="radio-inline"><input type="radio" name="optradio" id="true">Yes</label>
-              <label class="radio-inline"><input type="radio" name="optradio" id="false">No</label>
-              <br>
-              <br>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-default">Create the challenge</button>
-            </div>
-            <p id="challengeCreated"></p>
-            <p id="challengeCreationFail"></p>
-          </form>
-        </div>
-      </div>
-
-      <!-- SECTION 3. Share social medias-->
-      <!-- <div class="container" id="section_3">
-        <div id="share" class="container-fluid bg-3 text-center">
-          <h3 class="margin">Share</h3>
-          <footer clas="card-footer">
-            <p class="card-footer-item">
-              <span>
-            <a href="#"><i class="fa fa-twitter"></i>Twitter</a>
-          </span>
-            </p>
-            <p class="card-footer-item">
-              <span>
-            <a href="#"><i class="fa fa-facebook"></i>Facebook</a>
-          </span>
-            </p>
-          </footer>
-        </div>
-      </div> -->
+<!-- Do not add `script` tags-->
+<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">header</div>
+      <div class="nav">nav</div>
+      <div class="sidebar">sidebar</div>
+      <div class="sidebar1">sidebar1</div>
+      <div class="footer">footer</div>
+      <div class="content">content
+        <h2>Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     </div>
+     <div class="content1">content1
+       <h2>Title</h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
     </div>
-  </main>
-</body>
-
+  </body>
 </html>
