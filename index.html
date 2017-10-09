@@ -1,34 +1,307 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Try something new in 30 days</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Do not add `link` tags-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="assets/styles/styles.css"></link>
+<head>
+  <title>Try something new in 30 days</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Do not add `script` tags-->
-<script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-<script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">header</div>
-      <div class="nav">nav</div>
-      <div class="sidebar">sidebar</div>
-      <div class="sidebar1">sidebar1</div>
-      <div class="footer">footer</div>
-      <div class="content">content
-        <h2>Title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-     </div>
-     <div class="content1">content1
-       <h2>Title</h2>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <!-- Do not add `link` tags-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/styles/styles.css"></link>
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <header>
+        <center>
+          <h1>Try something new in 30 days</h1></center>
+      </header>
     </div>
+    <!-- NAVBAR -->
+    <div class="menu">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign Up / Sign In<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <form id="sign-up" class="profile">
+                    <fieldset>
+                      <h2>Sign Up</h2>
+                      <input type="text" name="credentials[email]" placeholder="Email" id="sign-up-email">
+                      <input type="password" name="credentials[password]" placeholder="Create Password" id="sign-up-password">
+                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="sign-up-password-confirmation">
+                      <br>
+                      <br>
+                      <input type="submit" name="submit" value="Sign Up!">
+                    </fieldset>
+                  </form>
+                </li>
+                <hr>
+                <li>
+                  <form id="sign-in" class="profile">
+                    <fieldset>
+                      <h2>Sign In</h2>
+                      <input type="text" name="credentials[email]" placeholder="Email" id="sign-in-email">
+                      <input type="password" name="credentials[password]" placeholder="Password" id="sign-in-password">
+                      <br>
+                      <br>
+                      <input type="submit" name="submit" value="Sign In!">
+                    </fieldset>
+                  </form>
+                  <p id="signIn"></p>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Challenges</a></li>
+            <li><a href="#">Diaries</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <form id="change-password" class="profile">
+                    <h3>Change Password</h3>
+                    <fieldset>
+                      <input type="password" name="credentials[old]" placeholder="Old Password" id="old-password">
+                      <input type="password" name="credentials[new]" placeholder="New Password" id="new-password">
+                      <br>
+                      <br>
+                      <input type="submit" name="submit" value="Submit Changes">
+                    </fieldset>
+                  </form>
+                  <p id="changePassword"></p>
+                </li>
+                <hr>
+                <li>
+                  <form class="sign-out profile" id="sign-out">
+                    <h3>Sign Out</h3>
+                    <input type="submit" name="submit" value="Sign out!">
+                    <p id="signOut"></p>
+                    <p id="signOutFail"></p>
+                  </form>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-  </body>
+    <!-- CREATE NEW CHALLENGE -->
+    <div class="content1">
+      <div id="new_challenge" class="container-fluid text-center">
+        <h2 class="margin">New Challenge</h2>
+        <p>Please fill all the fields to create a new challenge</p>
+        <form id="create-challenge">
+          <div class="form-group">
+            <label for="usr">Name</label>
+            <input name="name" type="text" class="form-control" placeholder="Challenge name..." id="name-challenge">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="comment">Goal</label>
+            <input name="goal" type="text" class="form-control" placeholder="Challenge goal..." id="goal-challenge">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="usr">Start day</label>
+            <input type="date" class="form-control" name="start_day" placeholder="Ex: 2017-09-12" id="start-day">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="usr">End day</label>
+            <input type="date" class="form-control" name="end_day" placeholder="Ex: 2017-10-12" id="end-day">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="usr">User Id</label>
+            <p id="idUser"></p>
+            <input type="text" class="form-control" name="userId" placeholder="User Id here..." id="user-id">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="usr">Completed?</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="true">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="false">No</label>
+            <br>
+            <br>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Create the challenge</button>
+          </div>
+          <p id="challengeCreated"></p>
+          <p id="challengeCreationFail"></p>
+        </form>
+      </div>
+    </div>
+    <!-- CREATE NEW DIARY-->
+    <div class="content3">
+      <div id="new_diary" class="container-fluid text-center">
+        <h2 class="margin">New Diary</h2>
+        <p>Please fill all the fields to create a new challenge</p>
+        <form id="create-challenge">
+          <div class="form-group">
+            <label for="usr">Challenge Id</label>
+            <p id="idChallenge"></p>
+            <input type="text" class="form-control" name="userId" placeholder="Challenge Id here..." id="challenge-id">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="usr">Date</label>
+            <input type="date" class="form-control" name="date" placeholder="Ex: 2017-09-12" id="date">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="comment">Description</label>
+            <input name="Description" type="text" class="form-control" placeholder="Description..." id="description">
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="usr">Completed?</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="true">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="false">No</label>
+            <br>
+            <br>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">Create the diary</button>
+          </div>
+          <p id="diaryCreated"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ALL CHALLENGES UPDATE / DELETE -->
+    <div class="content2">
+      <div id="challenges_list" class="container-fluid text-center">
+        <h2 class="margin">Challenges</h2>
+        <div class="flex-grid">
+          <div class="col">
+            <h3>Get All Challenges</h3>
+            <form class='challenges' id='challenges-search'>
+              <div class="form-group">
+              </div>
+              <button type="submit" class="btn btn-default">Get All Challenges</button>
+              <p id="allChallenges"></p>
+              <p id="allChallengesFail"></p>
+            </form>
+            <br>
+          </div>
+          <div class="col">
+            <h3>Get One Challenge</h3>
+            <form class='challenges' id='challenge-search'>
+              <div class="form-group">
+                <input type="text" name="challenge[id]" id="challenge-id" placeholder="Challenge ID Here" class="placeholder">
+              </div>
+              <button type="submit" class="btn btn-default">Get Challenge</button>
+            </form>
+            <p id="oneChallenge"></p>
+            <p id="oneChallengeFail"></p>
+          </div>
+          <br>
+          <div class="col">
+            <h3>Delete One Challenge</h3>
+            <form class='challenges' id='challenge-delete'>
+              <div class="form-group">
+                <input type="text" name="challenge[id]" id="challenge-id-delete" placeholder="Challenge ID Here" class="placeholder">
+              </div>
+              <button type="submit" class="btn btn-default">Delete Challenge</button>
+            </form>
+            <br>
+            <p id="deleteChallenge"></p>
+            <p id="deleteChallengeFail"></p>
+          </div>
+          <br>
+          <div class="col">
+            <h3>Update One Challenge</h3>
+            <form class='challenges' id='challenge-update'>
+              <div class="form-group">
+                <input type="text" name="userId" placeholder="User ID Here" class="placeholder" id="user-idU">
+                <input type="text" name="challenge[id]" placeholder="Challenge ID Here" class="placeholder" id="challenge-idU">
+                <input type="text" name="name" placeholder="Challenge name Here" class="placeholder" id="name-challengeU">
+                <input type="text" name="goal" placeholder="Challenge goal Here" class="placeholder" id="goal-challengeU">
+                <input type="date" name="start_day" placeholder="Start day Here" class="placeholder" id="start-dayU">
+                <input type="date" name="end_day" placeholder="End day Here" class="placeholder" id="end-dayU">
+                <br>
+                <label for="usr" id="trueU">Completed?</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
+                <label class="radio-inline"><input type="radio" name="optradio" id="falseU">No</label>
+              </div>
+              <button type="submit" class="btn btn-default">Update Challenge</button>
+              <p id="challengeUpdated"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ALL DIARIES UPDATE/ DELETE -->
+    <div class="content4">
+      <div id="challenges_list" class="container-fluid text-center">
+        <h2 class="margin">Diaries</h2>
+        <div class="flex-grid">
+          <div class="col">
+            <h3>Get All Diaries</h3>
+            <form class='challenges' id='challenges-search'>
+              <div class="form-group">
+              </div>
+              <button type="submit" class="btn btn-default">Get All Diaries</button>
+              <p id="allChallenges"></p>
+              <p id="allChallengesFail"></p>
+            </form>
+            <br>
+          </div>
+          <div class="col">
+            <h3>Get One Diary</h3>
+            <form class='challenges' id='challenge-search'>
+              <div class="form-group">
+                <input type="text" name="challenge[id]" id="challenge-id" placeholder="Challenge ID Here" class="placeholder">
+              </div>
+              <button type="submit" class="btn btn-default">Get Diary</button>
+            </form>
+            <p id="oneChallenge"></p>
+            <p id="oneChallengeFail"></p>
+          </div>
+          <br>
+          <div class="col">
+            <h3>Delete One Diary</h3>
+            <form class='challenges' id='challenge-delete'>
+              <div class="form-group">
+                <input type="text" name="challenge[id]" id="challenge-id-delete" placeholder="Challenge ID Here" class="placeholder">
+              </div>
+              <button type="submit" class="btn btn-default">Delete Diary</button>
+            </form>
+            <br>
+            <p id="deleteChallenge"></p>
+            <p id="deleteChallengeFail"></p>
+          </div>
+          <br>
+          <div class="col">
+            <h3>Update One Diary</h3>
+            <form class='diaries' id='diary-update'>
+              <div class="form-group">
+                <input type="text" name="challengeId" placeholder="Challenge ID Here" class="placeholder" id="diary-idU">
+                <input type="text" name="diary[id]" placeholder="Diary ID Here" class="placeholder" id="challenge-idU">
+                <input type="text" name="description" placeholder="Descritption Here" class="placeholder" id="description-diaryU">
+                <input type="date" name="date" placeholder="Date Here" class="placeholder" id="dateU">
+                <br>
+                <label for="usr" id="trueU">Completed?</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Yes</label>
+                <label class="radio-inline"><input type="radio" name="optradio" id="falseU">No</label>
+              </div>
+              <button type="submit" class="btn btn-default">Update Diary</button>
+              <p id="challengeUpdated"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+
 </html>
