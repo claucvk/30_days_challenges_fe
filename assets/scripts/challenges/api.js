@@ -75,7 +75,10 @@ const index = function (data) {
   return $.ajax({
     url: app.host + '/challenges/',
     method: 'GET',
-    data: {'user_id': app.user.id}
+    data: {'user_id': app.user.id},
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
@@ -83,7 +86,10 @@ const index = function (data) {
 const show = function (id) {
   return $.ajax({
     url: app.host + '/challenges/' + id,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
@@ -119,7 +125,10 @@ const create = function (data) {
 const destroy = function (id) {
   return $.ajax({
     url: app.host + '/challenges/' + id,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
@@ -128,6 +137,9 @@ const update = function (data) {
   return $.ajax({
     url: app.host + '/challenges/' + data.challenge.id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     data: {
       'challenge': {
         'name': data.name,
