@@ -193,6 +193,51 @@ const deleteChallengeFailure = (error) => {
   deleteChallengeFail.html('Challenges not deleted. Try again!').css('color', 'red')
 }
 
+// CREATE DIARY
+const onCreateDiarySuccess = () => {
+  console.log('New diary created')
+}
+
+const onCreateDiaryFailure = (error) => {
+  console.log(error)
+}
+
+// INDEX DIARY
+const getAllDiariesSuccess = (data) => {
+  console.log(data)
+}
+
+const getAllDiariesFailure = (error) => {
+  console.log(error)
+}
+
+// SHOW DIARY
+const getOneDiarySuccess = (data) => {
+  console.log(data.diary.id)
+}
+
+const getOneDiaryFailure = (error) => {
+  console.log(error)
+}
+
+// DELETE DIARY
+const deleteDiarySuccess = (data) => {
+  console.log(data)
+}
+
+const deleteDiaryFailure = (error) => {
+  console.log(error)
+}
+
+// UPDATE DIARY
+const onUpdateDiarySuccess = function () {
+  console.log('You successfully updated the diary!')
+}
+
+const onUpdateDiaryFailure = (error) => {
+  console.log(error)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -211,5 +256,15 @@ module.exports = {
   getOneChallengeSuccess,
   getOneChallengeFailure,
   deleteChallengeSuccess,
-  deleteChallengeFailure
+  deleteChallengeFailure,
+  onCreateDiarySuccess,
+  onCreateDiaryFailure,
+  getAllDiariesSuccess,
+  getAllDiariesFailure,
+  getOneDiarySuccess,
+  getOneDiaryFailure,
+  deleteDiarySuccess,
+  deleteDiaryFailure,
+  onUpdateDiarySuccess,
+  onUpdateDiaryFailure
 }

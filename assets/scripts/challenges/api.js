@@ -1,6 +1,7 @@
 'use strict'
 const app = require('../app')
 
+// SIGN UP
 const signUp = function (data) {
   console.log(data)
   return $.ajax({
@@ -16,6 +17,7 @@ const signUp = function (data) {
   })
 }
 
+// SIGN IN
 const signIn = function (data) {
   console.log(data)
   return $.ajax({
@@ -31,6 +33,7 @@ const signIn = function (data) {
   })
 }
 
+// SIGN OUT
 const signOut = function (data) {
   console.log(data)
   return $.ajax({
@@ -42,6 +45,7 @@ const signOut = function (data) {
   })
 }
 
+// CHANGE PASSWORD
 const changePassword = function (data) {
   console.log(data.credentials.old)
   console.log(data.credentials.new)
@@ -61,6 +65,7 @@ const changePassword = function (data) {
   })
 }
 
+// INDEX CHALLENGES
 const index = function (data) {
   if (!app.user) {
     console.log('not log in')
@@ -74,6 +79,7 @@ const index = function (data) {
   })
 }
 
+// SHOW CHALLENGE
 const show = function (id) {
   return $.ajax({
     url: app.host + '/challenges/' + id,
@@ -81,6 +87,7 @@ const show = function (id) {
   })
 }
 
+// CREATE CHALLENGE
 const create = function (data) {
   let status
   if (data.status === 'on') {
@@ -108,12 +115,15 @@ const create = function (data) {
   })
 }
 
+// DELETE CHALLENGE
 const destroy = function (id) {
   return $.ajax({
     url: app.host + '/challenges/' + id,
     method: 'DELETE'
   })
 }
+
+// UPDATE CHALLENGE
 const update = function (data) {
   return $.ajax({
     url: app.host + '/challenges/' + data.challenge.id,
@@ -130,6 +140,79 @@ const update = function (data) {
     }
   })
 }
+// CREATE DIARY
+const createDiary = function (data) {
+  let status
+  if (data.status === 'on') {
+    status = true
+  } else {
+    status = false
+  }
+  console.log(app)
+  return $.ajax({
+    method: 'POST',
+    url: app.host + '/diaries/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+      'diary': {
+        'day': data.day,
+        'description': data.description,
+        'start_day': data.start_day,
+        'status': status,
+        'challenge_id': data.challengeId
+      }
+    }
+  })
+}
+
+// INDEX DIARIES
+const indexDiaries = function (data) {
+  if (!app.user) {
+    console.log('not log in')
+    return
+  }
+
+  return $.ajax({
+    url: app.host + '/challenges/',
+    method: 'GET',
+    data: {'challenge_id': app.challenge.id}
+  })
+}
+
+// SHOW DIARY
+const showDiary = function (id) {
+  return $.ajax({
+    url: app.host + '/diaries/' + id,
+    method: 'GET'
+  })
+}
+
+// DELETE DIARY
+const destroyDiary = function (id) {
+  return $.ajax({
+    url: app.host + '/diaries/' + id,
+    method: 'DELETE'
+  })
+}
+
+// UPDATE DIARY
+const updateDiary = function (data) {
+  return $.ajax({
+    url: app.host + '/diaries/' + data.diary.id,
+    method: 'PATCH',
+    data: {
+      'diary': {
+        'day': data.day,
+        'description': data.description,
+        'start_day': data.start_day,
+        'status': status,
+        'challenge_id': data.challengeId
+      }
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -140,5 +223,10 @@ module.exports = {
   show,
   create,
   destroy,
-  update
+  update,
+  createDiary,
+  indexDiaries,
+  showDiary,
+  destroyDiary,
+  updateDiary
 }

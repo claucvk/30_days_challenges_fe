@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
+// SIGN UP
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -12,6 +13,7 @@ const onSignUp = function (event) {
     .fail(ui.signUpFailure)
 }
 
+// SIGN IN
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -20,6 +22,7 @@ const onSignIn = function (event) {
     .fail(ui.signInFailure)
 }
 
+// SIGN OUT
 const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(this) // event.target
@@ -28,6 +31,7 @@ const onSignOut = function (event) {
     .fail(ui.signOutFailure)
 }
 
+// CHANGE PASSWORD
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this) // event.target
@@ -36,6 +40,7 @@ const onChangePassword = function (event) {
     .fail(ui.changePasswordFailure)
 }
 
+// INDEX CHALLENGES
 const onGetChallenges = function (event) {
   event.preventDefault()
   // const data = getFormFields(this)
@@ -45,6 +50,7 @@ const onGetChallenges = function (event) {
     .catch(ui.getAllChallengesFailure)
 }
 
+// SHOW CHALLENGE
 const onGetChallenge = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -58,6 +64,7 @@ const onGetChallenge = function (event) {
   }
 }
 
+// CREATE CHALLENGE
 const onCreateChallenge = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target) // event.target
@@ -66,7 +73,7 @@ const onCreateChallenge = function (event) {
     .done(ui.onCreateSuccess)
     .fail(ui.onCreateFailure)
 }
-
+// DELETE CHALLENGE
 const onDeleteChallenge = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -81,6 +88,7 @@ const onDeleteChallenge = function (event) {
   }
 }
 
+// UPDATE CHALLENGE
 const onUpdateChallenge = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -93,6 +101,68 @@ const onUpdateChallenge = function (event) {
   }
 }
 
+// CREATE DIARY
+const onCreateDiary = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target) // event.target
+
+  api.createDiary(data)
+    .done(ui.onCreateDiarySuccess)
+    .fail(ui.onCreateDiaryFailure)
+}
+
+// INDEX DIARIES
+const onGetDiaries = function (event) {
+  event.preventDefault()
+  // const data = getFormFields(this)
+  console.log(api)
+  api.indexDiaries()
+    .then(ui.getAllDiariesSuccess)
+    .catch(ui.getAllDiariesFailure)
+}
+
+// SHOW DIARY
+const onGetDiary = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const diary = data.diary
+  if (diary.id.length !== 0) {
+    api.showDiary(diary.id)
+      .then(ui.getOneDiarySuccess)
+      .catch(ui.getOneDiaryFailure)
+  } else {
+    console.log('Please provide a challenge id!')
+  }
+}
+
+// DELETE DIARY
+const onDeleteDiary = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const diary = data.diary
+
+  if (diary.id.length !== 0) {
+    api.destroyDiary(diary.id)
+      .then(ui.deleteDiarySuccess)
+      .catch(ui.deleteDiaryFailure)
+  } else {
+    console.log('Please provide a diary id!')
+  }
+}
+
+// UPDATE DIARY
+const onUpdateDiary = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  if (data.challenge.id.length !== 0) {
+    api.updateDiary(data)
+      .then(ui.onUpdateDiarySuccess)
+      .catch(ui.onUpdateDiaryFailure)
+  } else {
+    console.log('diary updated!')
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -102,5 +172,10 @@ module.exports = {
   onGetChallenge,
   onCreateChallenge,
   onDeleteChallenge,
-  onUpdateChallenge
+  onUpdateChallenge,
+  onCreateDiary,
+  onGetDiaries,
+  onGetDiary,
+  onDeleteDiary,
+  onUpdateDiary
 }
