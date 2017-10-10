@@ -103,9 +103,10 @@ const onUpdateChallenge = function (event) {
 
 // CREATE DIARY
 const onCreateDiary = function (event) {
+  console.log('i am here motherfuckers')
   event.preventDefault()
   const data = getFormFields(event.target) // event.target
-
+  console.log(data)
   api.createDiary(data)
     .done(ui.onCreateDiarySuccess)
     .fail(ui.onCreateDiaryFailure)

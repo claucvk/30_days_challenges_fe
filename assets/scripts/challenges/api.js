@@ -169,7 +169,7 @@ const createDiary = function (data) {
     },
     data: {
       'diary': {
-        'day': data.day,
+        'day': data.date,
         'description': data.description,
         'start_day': data.start_day,
         'status': status,
@@ -189,6 +189,9 @@ const indexDiaries = function (data) {
   return $.ajax({
     url: app.host + '/challenges/',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     data: {'challenge_id': app.challenge.id}
   })
 }
@@ -197,7 +200,10 @@ const indexDiaries = function (data) {
 const showDiary = function (id) {
   return $.ajax({
     url: app.host + '/diaries/' + id,
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
@@ -205,7 +211,10 @@ const showDiary = function (id) {
 const destroyDiary = function (id) {
   return $.ajax({
     url: app.host + '/diaries/' + id,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
   })
 }
 
@@ -214,6 +223,9 @@ const updateDiary = function (data) {
   return $.ajax({
     url: app.host + '/diaries/' + data.diary.id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
     data: {
       'diary': {
         'day': data.day,
