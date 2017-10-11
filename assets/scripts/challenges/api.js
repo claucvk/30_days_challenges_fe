@@ -181,18 +181,20 @@ const createDiary = function (data) {
 
 // INDEX DIARIES
 const indexDiaries = function (data) {
+  console.log('I am here index')
+  console.log(data)
   if (!app.user) {
     console.log('not log in')
     return
   }
-
+  console.log(data.challenge.id)
   return $.ajax({
-    url: app.host + '/challenges/',
+    url: app.host + '/diaries/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
     },
-    data: {'challenge_id': app.challenge.id}
+    data: {'challenge_id': data.challenge.id}
   })
 }
 

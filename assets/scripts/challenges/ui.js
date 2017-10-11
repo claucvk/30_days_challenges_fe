@@ -203,8 +203,21 @@ const onCreateDiaryFailure = (error) => {
 }
 
 // INDEX DIARY
-const getAllDiariesSuccess = (data) => {
+const getAllDiariesSuccess = (data) => (data) => {
+  console.log('ui')
   console.log(data)
+  // const arrayChallenges = []
+  // for (const i in data.challenges) {
+  //   const elementos = 'Challenge Id ' + data.challenges[i].id +
+  //     ' ' + 'Challenge Name ' + data.challenges[i].name +
+  //     ' ' + 'Challenge Goal ' + data.challenges[i].goal +
+  //     ' ' + 'Start day ' + data.challenges[i].start_day +
+  //     ' ' + 'End day ' + data.challenges[i].end_day +
+  //     ' ' + 'Challenge Status ' + data.challenges[i].status +
+  //     '<br>'
+  //   arrayChallenges.push(elementos)
+  // }
+  // document.getElementById('allChallenges').innerHTML = arrayChallenges.join(' ')
 }
 
 const getAllDiariesFailure = (error) => {

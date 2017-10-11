@@ -103,10 +103,8 @@ const onUpdateChallenge = function (event) {
 
 // CREATE DIARY
 const onCreateDiary = function (event) {
-  console.log('i am here motherfuckers')
   event.preventDefault()
   const data = getFormFields(event.target) // event.target
-  console.log(data)
   api.createDiary(data)
     .done(ui.onCreateDiarySuccess)
     .fail(ui.onCreateDiaryFailure)
@@ -114,10 +112,13 @@ const onCreateDiary = function (event) {
 
 // INDEX DIARIES
 const onGetDiaries = function (event) {
+  console.log('i am here motherfuckers')
+  console.log(event)
   event.preventDefault()
+  const data = getFormFields(event.target)
   // const data = getFormFields(this)
   console.log(api)
-  api.indexDiaries()
+  api.indexDiaries(data)
     .then(ui.getAllDiariesSuccess)
     .catch(ui.getAllDiariesFailure)
 }
