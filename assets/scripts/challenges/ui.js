@@ -235,7 +235,7 @@ const getOneDiaryFailure = (error) => {
 
 // DELETE DIARY
 const deleteDiarySuccess = (data) => {
-  console.log(data)
+  console.log('se borró? ', data)
 }
 
 const deleteDiaryFailure = (error) => {

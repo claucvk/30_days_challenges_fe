@@ -156,7 +156,7 @@ const onDeleteDiary = function (event) {
 const onUpdateDiary = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  if (data.challenge.id.length !== 0) {
+  if (data.diary.id.length !== 0) {
     api.updateDiary(data)
       .then(ui.onUpdateDiarySuccess)
       .catch(ui.onUpdateDiaryFailure)
