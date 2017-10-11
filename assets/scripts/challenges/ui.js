@@ -140,6 +140,7 @@ const onUpdateFailure = (error) => {
 // Get all challenges
 const getAllChallengesSuccess = (data) => {
   console.log(data)
+  console.log('show all challenges')
   const arrayChallenges = []
   for (const i in data.challenges) {
     const elementos = 'Challenge Id ' + data.challenges[i].id +
@@ -203,21 +204,20 @@ const onCreateDiaryFailure = (error) => {
 }
 
 // INDEX DIARY
-const getAllDiariesSuccess = (data) => (data) => {
+const getAllDiariesSuccess = (data) => {
   console.log('ui')
   console.log(data)
-  // const arrayChallenges = []
-  // for (const i in data.challenges) {
-  //   const elementos = 'Challenge Id ' + data.challenges[i].id +
-  //     ' ' + 'Challenge Name ' + data.challenges[i].name +
-  //     ' ' + 'Challenge Goal ' + data.challenges[i].goal +
-  //     ' ' + 'Start day ' + data.challenges[i].start_day +
-  //     ' ' + 'End day ' + data.challenges[i].end_day +
-  //     ' ' + 'Challenge Status ' + data.challenges[i].status +
-  //     '<br>'
-  //   arrayChallenges.push(elementos)
-  // }
-  // document.getElementById('allChallenges').innerHTML = arrayChallenges.join(' ')
+  const arrayDiaries = []
+  for (const i in data.diaries) {
+    const elementos = 'Diary ID ' + data.diaries[i].id +
+      ' ' + 'Challenge ID ' + data.diaries[i].challenge.id +
+      ' ' + 'Date ' + data.diaries[i].day +
+      ' ' + 'Description ' + data.diaries[i].description +
+      ' ' + 'Diary Status ' + data.diaries[i].status +
+      '<br>'
+    arrayDiaries.push(elementos)
+  }
+  document.getElementById('allDiaries').innerHTML = arrayDiaries.join(' ')
 }
 
 const getAllDiariesFailure = (error) => {

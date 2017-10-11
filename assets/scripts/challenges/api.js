@@ -161,6 +161,7 @@ const createDiary = function (data) {
     status = false
   }
   console.log(app)
+  console.log(data)
   return $.ajax({
     method: 'POST',
     url: app.host + '/diaries/',
@@ -171,7 +172,6 @@ const createDiary = function (data) {
       'diary': {
         'day': data.date,
         'description': data.description,
-        'start_day': data.start_day,
         'status': status,
         'challenge_id': data.challengeId
       }
