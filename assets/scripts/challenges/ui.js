@@ -300,15 +300,28 @@ const getOneDiaryFailure = (error) => {
   setTimeout(function () {
     $('#oneDiaryFail').html('')
   }, 3000)
+  $('#diary-id').val('')
 }
 
 // DELETE DIARY
 const deleteDiarySuccess = (data) => {
   console.log('se borró? ', data)
+  const deleteDiary = $('#deleteDiary')
+  deleteDiary.html('Diary deleted').css('color', 'green')
+  $('#diary-id-delete').val('')
+  setTimeout(function () {
+    $('#deleteDiary').html('')
+  }, 3000)
 }
 
 const deleteDiaryFailure = (error) => {
   console.log(error)
+  const deleteDiaryFail = $('#deleteDiaryFail')
+  deleteDiaryFail.html('Diary not deleted. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#deleteDiaryFail').html('')
+  }, 3000)
+  $('#diary-id-delete').val('')
 }
 
 // UPDATE DIARY
@@ -329,10 +342,10 @@ const onUpdateDiaryFailure = (error) => {
   $('#diary-idU').val('')
   $('#diary-dateU').val('')
   $('#description-diaryU').val('')
-  const diaryCreated = $('#diaryCreated')
-  diaryCreated.html('Diary not updated. Try again!').css('color', 'red')
+  const diaryUpdatedFail = $('#diaryUpdatedFail')
+  diaryUpdatedFail.html('Diary not updated. Try again!').css('color', 'red')
   setTimeout(function () {
-    $('#diaryCreated').html('')
+    $('#diaryUpdatedFail').html('')
   }, 3000)
 }
 
