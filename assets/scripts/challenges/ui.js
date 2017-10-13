@@ -6,19 +6,20 @@ const app = require('../app.js')
 const signUpSuccess = (data) => {
   app.user = data.user
   console.log(data)
-  const signUp = $('#signUp')
-  signUp.html('Sign Up succesful!').css('color', 'green')
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirmation').val('')
 }
 const signUpFailure = (error) => {
   console.log(error)
-  const signUpFail = $('#signUpFail')
-  signUpFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirmation').val('')
+  const signUpFail = $('#signUpFail')
+  signUpFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
+  setTimeout(function () {
+    $('#signUpFail').html('')
+  }, 7000)
 }
 
 // Sign In
@@ -31,12 +32,8 @@ const signInSuccess = (data) => {
   $('#profile').removeClass('hidden')
   $('#section_1').removeClass('hidden')
   $('#section_2').removeClass('hidden')
-  const signIn = $('#signIn')
-  signIn.html('Sign In succesful!').css('color', 'green')
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
-  const idUser = $('#idUser')
-  idUser.html('Your user ID: ' + data.user.id).css('color', 'blue')
 }
 const signInFailure = (error) => {
   console.log(error)
@@ -44,6 +41,9 @@ const signInFailure = (error) => {
   signInFail.html('Sign In failed. Verify your email or password!').css('color', 'red')
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
+  setTimeout(function () {
+    $('#signInFail').html('')
+  }, 7000)
 }
 
 // Sign Out
@@ -56,28 +56,34 @@ const signOutSuccess = () => {
   $('#profile').addClass('hidden')
   $('#section_1').addClass('hidden')
   $('#section_2').addClass('hidden')
-  const signOut = $('#signOut')
-  signOut.html('Sign Out succesful!').css('color', 'green')
-  $('#sign-up-in').removeClass('hidden')
 }
 
 const signOutFailure = (error) => {
   console.log(error)
   const signOutFail = $('#signOutFail')
   signOutFail.html('Sign Out failed. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#signOutFail').html('')
+  }, 7000)
 }
 // Change password
 const changePasswordSuccess = () => {
   console.log('Password Successfully Changed.')
   const changePassword = $('#changePassword')
   changePassword.html('Password Successfully Changed!').css('color', 'green')
+  setTimeout(function () {
+    $('#changePassword').html('')
+  }, 2000)
   $('#old-password').val('')
   $('#new-password').val('')
 }
 const changePasswordFailure = (error) => {
   console.log(error)
   const changePasswordFail = $('#changePasswordFail')
-  changePasswordFail.html('Original password is incorrect. Try again!').css('color', 'red')
+  changePasswordFail.html('Original password or email is incorrect. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#changePasswordFail').html('')
+  }, 2000)
   $('#old-password').val('')
   $('#new-password').val('')
 }
@@ -85,8 +91,6 @@ const changePasswordFailure = (error) => {
 // Start a new challenge.
 const onCreateSuccess = () => {
   console.log('New challenge created')
-  const challengeCreated = $('#challengeCreated')
-  challengeCreated.html('New challenge created!').css('color', 'blue')
   $('#name-challenge').val('')
   $('#goal-challenge').val('')
   $('#start-day').val('')
@@ -94,12 +98,15 @@ const onCreateSuccess = () => {
   $('#user-id').val('')
   $('#true').val('')
   $('#false').val('')
+  const challengeCreated = $('#challengeCreated')
+  challengeCreated.html('New challenge created!').css('color', 'blue')
+  setTimeout(function () {
+    $('#challengeCreated').html('')
+  }, 3000)
 }
 
 const onCreateFailure = (error) => {
   console.log(error)
-  const challengeCreationFail = $('#challengeCreationFail')
-  challengeCreationFail.html('Challenge not created. Try again!').css('color', 'red')
   $('#name-challenge').val('')
   $('#goal-challenge').val('')
   $('#start-day').val('')
@@ -107,13 +114,38 @@ const onCreateFailure = (error) => {
   $('#user-id').val('')
   $('#true').val('')
   $('#false').val('')
+  const challengeCreated = $('#challengeCreated')
+  challengeCreated.html('Challenge not created. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#challengeCreated').html('')
+  }, 3000)
 }
 
 // Update a challenge
 const onUpdateSuccess = function () {
   console.log('You successfully updated the challenge!')
+  $('#user-idU').val('')
+  $('#challenge-idU').val('')
+  $('#name-challengeU').val('')
+  $('#goal-challengeU').val('')
+  $('#start-dayU').val('')
+  $('#end-dayU').val('')
+  $('#trueU').val('')
+  $('#falseU').val('')
   const challengeUpdated = $('#challengeUpdated')
-  challengeUpdated.html('You successfully updated the challenge!').css('color', 'black')
+  challengeUpdated.html('You successfully updated the challenge!').css('color', 'blue')
+  setTimeout(function () {
+    $('#challengeUpdated').html('')
+  }, 3000)
+}
+
+const onUpdateFailure = (error) => {
+  console.log(error)
+  const challengeUpdateFail = $('#challengeUpdateFail')
+  challengeUpdateFail.html('Challenge not updated. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#challengeUpdateFail').html('')
+  }, 3000)
   $('#user-idU').val('')
   $('#challenge-idU').val('')
   $('#name-challengeU').val('')
@@ -124,19 +156,6 @@ const onUpdateSuccess = function () {
   $('#falseU').val('')
 }
 
-const onUpdateFailure = (error) => {
-  console.log(error)
-  const challengeUpdateFail = $('#challengeUpdateFail')
-  challengeUpdateFail.html('Challenge not created. Try again!').css('color', 'red')
-  $('#user-idU').val('')
-  $('#challenge-idU').val('')
-  $('#name-challengeU').val('')
-  $('#goal-challengeU').val('')
-  $('#start-dayU').val('')
-  $('#end-dayU').val('')
-  $('#trueU').val('')
-  $('#falseU').val('')
-}
 // Get all challenges
 const getAllChallengesSuccess = (data) => {
   console.log(data)
@@ -159,6 +178,9 @@ const getAllChallengesFailure = (error) => {
   console.log(error)
   const allChallengesFail = $('#allChallengesFail')
   allChallengesFail.html('Challenges not found. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#allChallengesFail').html('')
+  }, 3000)
 }
 
 // Get one challenge
@@ -172,13 +194,17 @@ const getOneChallengeSuccess = (data) => {
     ' ' + 'Challenge Status ' + data.challenge.status +
     '<br>'
   document.getElementById('oneChallenge').innerHTML = elementos
+  $('#challenge-id-yo').val('')
 }
 
 const getOneChallengeFailure = (error) => {
   console.log(error)
   const oneChallengeFail = $('#oneChallengeFail')
   oneChallengeFail.html('Challenge not found. Try again!').css('color', 'red')
-  $('#challenge-id').val('')
+  setTimeout(function () {
+    $('#oneChallengeFail').html('')
+  }, 3000)
+  $('#challenge-id-yo').val('')
 }
 
 // Delete one challenge
@@ -186,27 +212,52 @@ const deleteChallengeSuccess = (data) => {
   console.log(data)
   const deleteChallenge = $('#deleteChallenge')
   deleteChallenge.html('Challenged deleted').css('color', 'green')
+  $('#challenge-id-delete').val('')
+  setTimeout(function () {
+    $('#deleteChallenge').html('')
+  }, 3000)
 }
 
 const deleteChallengeFailure = (error) => {
   console.log(error)
   const deleteChallengeFail = $('#deleteChallengeFail')
-  deleteChallengeFail.html('Challenges not deleted. Try again!').css('color', 'red')
+  deleteChallengeFail.html('Challenge not deleted. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#deleteChallengeFail').html('')
+  }, 3000)
+  $('#challenge-id-delete').val('')
 }
 
 // CREATE DIARY
 const onCreateDiarySuccess = () => {
   console.log('New diary created')
+  $('#challenge-id').val('')
+  $('#date').val('')
+  $('#description').val('')
+  const diaryCreated = $('#diaryCreated')
+  diaryCreated.html('New diary created!').css('color', 'blue')
+  setTimeout(function () {
+    $('#diaryCreated').html('')
+  }, 3000)
 }
 
 const onCreateDiaryFailure = (error) => {
   console.log(error)
+  $('#challenge-id').val('')
+  $('#date').val('')
+  $('#description').val('')
+  const diaryCreated = $('#diaryCreated')
+  diaryCreated.html('Diary not created. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#diaryCreated').html('')
+  }, 3000)
 }
 
 // INDEX DIARY
 const getAllDiariesSuccess = (data) => {
   console.log('ui')
   console.log(data)
+  $('#diaries-search').val('')
   const arrayDiaries = []
   for (const i in data.diaries) {
     const elementos = 'Diary ID ' + data.diaries[i].id +
@@ -226,6 +277,7 @@ const getAllDiariesFailure = (error) => {
 
 // SHOW DIARY
 const getOneDiarySuccess = (data) => {
+  $('#diary-search').val('')
   const elementos = 'Diary ID ' + data.diary.id +
     ' ' + 'Challenge ID ' + data.diary.challenge.id +
     ' ' + 'Date ' + data.diary.day +
@@ -252,10 +304,26 @@ const deleteDiaryFailure = (error) => {
 // UPDATE DIARY
 const onUpdateDiarySuccess = function () {
   console.log('You successfully updated the diary!')
+  $('#diary-idU').val('')
+  $('#diary-dateU').val('')
+  $('#description-diaryU').val('')
+  const diaryUpdated = $('#diaryUpdated')
+  diaryUpdated.html('Diary updated!').css('color', 'blue')
+  setTimeout(function () {
+    $('#diaryUpdated').html('')
+  }, 3000)
 }
 
 const onUpdateDiaryFailure = (error) => {
   console.log(error)
+  $('#diary-idU').val('')
+  $('#diary-dateU').val('')
+  $('#description-diaryU').val('')
+  const diaryCreated = $('#diaryCreated')
+  diaryCreated.html('Diary not updated. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#diaryCreated').html('')
+  }, 3000)
 }
 
 module.exports = {
