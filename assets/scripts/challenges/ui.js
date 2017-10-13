@@ -226,6 +226,13 @@ const getAllDiariesFailure = (error) => {
 
 // SHOW DIARY
 const getOneDiarySuccess = (data) => {
+  const elementos = 'Diary ID ' + data.diary.id +
+    ' ' + 'Challenge ID ' + data.diary.challenge.id +
+    ' ' + 'Date ' + data.diary.day +
+    ' ' + 'Description ' + data.diary.description +
+    ' ' + 'Diary Status ' + data.diary.status +
+    '<br>'
+  document.getElementById('oneDiary').innerHTML = elementos
   console.log(data.diary.id)
 }
 
