@@ -257,7 +257,6 @@ const onCreateDiaryFailure = (error) => {
 const getAllDiariesSuccess = (data) => {
   console.log('ui')
   console.log(data)
-  $('#diaries-search').val('')
   const arrayDiaries = []
   for (const i in data.diaries) {
     const elementos = 'Diary ID ' + data.diaries[i].id +
@@ -269,15 +268,21 @@ const getAllDiariesSuccess = (data) => {
     arrayDiaries.push(elementos)
   }
   document.getElementById('allDiaries').innerHTML = arrayDiaries.join(' ')
+  $('#diary-id-all').val('')
 }
 
 const getAllDiariesFailure = (error) => {
   console.log(error)
+  const allDiariesFail = $('#allDiariesFail')
+  allDiariesFail.html('Diaries not found. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#allDiariesFail').html('')
+  }, 3000)
 }
 
 // SHOW DIARY
 const getOneDiarySuccess = (data) => {
-  $('#diary-search').val('')
+  $('#diary-id').val('')
   const elementos = 'Diary ID ' + data.diary.id +
     ' ' + 'Challenge ID ' + data.diary.challenge.id +
     ' ' + 'Date ' + data.diary.day +
@@ -290,6 +295,11 @@ const getOneDiarySuccess = (data) => {
 
 const getOneDiaryFailure = (error) => {
   console.log(error)
+  const oneDiaryFail = $('#oneDiaryFail')
+  oneDiaryFail.html('Diary not found. Try again!').css('color', 'red')
+  setTimeout(function () {
+    $('#oneDiaryFail').html('')
+  }, 3000)
 }
 
 // DELETE DIARY
