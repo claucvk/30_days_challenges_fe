@@ -13,7 +13,11 @@ I came up with the idea after watching Matt Cutts Ted Talk https://www.ted.com/t
 Here there is an abstract of Matt Cutts speech where he explains very well what this is about.
  "The idea is actually pretty simple. Think about something you've always wanted to add to your life and try it for the next 30 days. It turns out 30 days is just about the right amount of time to add a new habit or subtract a habit -- like watching the news -- from your life."
 
- The app will provide a platform where people can save the challenge, keep record of their progress and share it with friends and family.
+ The app provides a platform where people can save the challenge, keep record of their progress and share it with friends and family.
+
+## General Approach
+I started defining the planning documents that included wireframes, ERD, and user stories. Next I
+developed a schedule for production. Following by pseudocode. Finally, I used Wunderlist to monitor progress.
 
 ## User stories
 - As a user I want to sign up/ sign in to use the app.
@@ -31,8 +35,10 @@ http://i.imgur.com/HrurlWZ.png
 
 ## Technologies Used
 - HTML
-- CSS
+- CSS / CSS Grid
 - JavaScript/ Jquery / AJAX
 
 ## Issues
-- Improve UI looks.
+- I would like to the improve the UI looks.
+- Connecting and displaying properly the data on the page was hard. It helped being methodical and research on Internet possibles solutions to the problems  encountered.
+- Get a nice and clean structure could be tedious, but using CSS Grid make the task easier.

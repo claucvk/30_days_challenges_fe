@@ -224,7 +224,7 @@ const getOneChallengeFailure = (error) => {
 const deleteChallengeSuccess = (data) => {
   console.log(data)
   const deleteChallenge = $('#deleteChallenge')
-  deleteChallenge.html('Challenged deleted').css('color', 'green')
+  deleteChallenge.html('Challenge deleted').css('color', 'green')
   $('#challenge-id-delete').val('')
   setTimeout(function () {
     $('#deleteChallenge').html('')
@@ -292,6 +292,7 @@ const getAllDiariesFailure = (error) => {
     $('#allDiariesFail').html('')
   }, 3000)
   $('#allDiaries').html('')
+  $('#diary-id-all').val('')
 }
 
 // SHOW DIARY
