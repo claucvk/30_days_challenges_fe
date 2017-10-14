@@ -196,6 +196,7 @@ const getAllChallengesFailure = (error) => {
   setTimeout(function () {
     $('#allChallengesFail').html('')
   }, 3000)
+  $('#allChallenges').html('')
 }
 
 // Get one challenge
@@ -220,6 +221,7 @@ const getOneChallengeFailure = (error) => {
     $('#oneChallengeFail').html('')
   }, 3000)
   $('#challenge-id-yo').val('')
+  $('#oneChallenge').html('')
 }
 
 // Delete one challenge
@@ -293,6 +295,7 @@ const getAllDiariesFailure = (error) => {
   setTimeout(function () {
     $('#allDiariesFail').html('')
   }, 3000)
+  $('#allDiaries').html('')
 }
 
 // SHOW DIARY
@@ -316,6 +319,7 @@ const getOneDiaryFailure = (error) => {
     $('#oneDiaryFail').html('')
   }, 3000)
   $('#diary-id').val('')
+  $('#oneDiary').html('')
 }
 
 // DELETE DIARY

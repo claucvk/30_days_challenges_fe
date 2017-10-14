@@ -190,7 +190,7 @@
             <form class='challenges' id='challenges-search'>
               <div class="form-group">
               </div>
-              <button type="submit" class="btn btn-default">Get All Challenges</button>
+              <button type="submit" id="hideshow" class="btn btn-default">Get All Challenges</button>
               <p id="allChallenges"></p>
               <p id="allChallengesFail"></p>
             </form>
@@ -200,13 +200,13 @@
             <h3>Get One Challenge</h3>
             <form class='challenges' id='challenge-search'>
               <div class="form-group">
-                <input type="text" name="challenge[id]" id="challenge-id-yo" placeholder="Challenge ID Here" class="placeholder" >
+                <input type="text" name="challenge[id]" id="challenge-id-yo" placeholder="Challenge ID Here" class="placeholder">
               </div>
               <button type="submit" class="btn btn-default">Get Challenge</button>
+              <p id="oneChallenge"></p>
+              <p id="oneChallengeFail"></p>
+              <p id="oneChallengeMessage"></p>
             </form>
-            <p id="oneChallenge"></p>
-            <p id="oneChallengeFail"></p>
-            <p id="oneChallengeMessage"></p>
           </div>
           <br>
           <div class="col">
@@ -218,8 +218,6 @@
               <button type="submit" class="btn btn-default">Delete Challenge</button>
             </form>
             <br>
-            <p id="deleteChallenge"></p>
-            <p id="deleteChallengeFail"></p>
           </div>
           <br>
           <div class="col">
