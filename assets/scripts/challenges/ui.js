@@ -6,9 +6,7 @@ const app = require('../app.js')
 const signUpSuccess = (data) => {
   app.user = data.user
   console.log(data)
-  $('#sign-up-email').val('')
-  $('#sign-up-password').val('')
-  $('#sign-up-password-confirmation').val('')
+  $('#sign-up input').not('.submit-btn').val('')
   const signUpGood = $('#signUpGood')
   signUpGood.html('Sign Up sucessful!').css('color', 'green')
   setTimeout(function () {
@@ -17,9 +15,7 @@ const signUpSuccess = (data) => {
 }
 const signUpFailure = (error) => {
   console.log(error)
-  $('#sign-up-email').val('')
-  $('#sign-up-password').val('')
-  $('#sign-up-password-confirmation').val('')
+  $('#sign-up input').not('.submit-btn').val('')
   const signUpFail = $('#signUpFail')
   signUpFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
   setTimeout(function () {

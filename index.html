@@ -32,17 +32,17 @@
             <li class=" dropdown" id="login"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign Up / Sign In<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <form id="sign-up" class="profile">
+                  <form id="sign-up">
+                    <h2>Sign Up</h2>
                     <fieldset>
-                      <h2>Sign Up</h2>
-                      <input type="text" name="credentials[email]" placeholder="Email" id="sign-up-email">
-                      <input type="password" name="credentials[password]" placeholder="Create Password" id="sign-up-password">
-                      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="sign-up-password-confirmation">
-                      <br>
-                      <br>
-                      <input type="submit" name="submit" value="Sign Up!">
+                      <legend></legend>
+                      <input type="text" name="credentials[email]" value="" placeholder="email">
+                      <input type="password" name="credentials[password]" value="" placeholder="password">
+                      <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+                      <input type="submit" name="submit" class="submit-btn" value="Sign up!">
                     </fieldset>
-                  </form>
+                </form>
+        <br>
                   <p id="signUpFail"></p>
                   <p id="signUpGood"></p>
                 </li>

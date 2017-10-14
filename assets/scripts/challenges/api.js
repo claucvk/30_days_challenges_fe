@@ -5,15 +5,9 @@ const app = require('../app')
 const signUp = function (data) {
   console.log(data)
   return $.ajax({
-    url: app.host + '/sign-up/',
+    url: app.host + '/sign-up',
     method: 'POST',
-    data: {
-      'credentials': {
-        'email': data.credentials.email,
-        'password': data.credentials.password,
-        'password_confirmation': data.credentials.password
-      }
-    }
+    data
   })
 }
 
