@@ -9,6 +9,11 @@ const signUpSuccess = (data) => {
   $('#sign-up-email').val('')
   $('#sign-up-password').val('')
   $('#sign-up-password-confirmation').val('')
+  const signUpGood = $('#signUpGood')
+  signUpGood.html('Sign Up sucessful!').css('color', 'green')
+  setTimeout(function () {
+    $('#signUpGood').html('')
+  }, 7000)
 }
 const signUpFailure = (error) => {
   console.log(error)
@@ -26,12 +31,17 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   app.user = data.user
   console.log(data)
-  $('#sign-up-in').addClass('hidden')
-  $('#challenges-list').removeClass('hidden')
-  $('#new-challenge').removeClass('hidden')
-  $('#profile').removeClass('hidden')
-  $('#section_1').removeClass('hidden')
-  $('#section_2').removeClass('hidden')
+  $('#login').addClass('hidden')
+  $('#show-challenge').removeClass('hidden')
+  $('#show-diary').removeClass('hidden')
+  $('#show-profile').removeClass('hidden')
+  $('.socialLinks').removeClass('hidden')
+  $('#challenges_list').removeClass('hidden')
+  $('#challenge-content1').removeClass('hidden')
+  $('#challenge-content2').removeClass('hidden')
+  $('#diary-content3').removeClass('hidden')
+  $('#diary-content4').removeClass('hidden')
+  $('#show-footer').removeClass('hidden')
   $('#sign-in-email').val('')
   $('#sign-in-password').val('')
 }
@@ -50,12 +60,17 @@ const signInFailure = (error) => {
 const signOutSuccess = () => {
   app.user = null
   console.log(app)
-  $('#sign-up-in').removeClass('hidden')
-  $('#challenges-list').addClass('hidden')
-  $('#new-challenge').addClass('hidden')
-  $('#profile').addClass('hidden')
-  $('#section_1').addClass('hidden')
-  $('#section_2').addClass('hidden')
+  $('#login').removeClass('hidden')
+  $('#show-challenge').addClass('hidden')
+  $('#show-diary').addClass('hidden')
+  $('#show-profile').addClass('hidden')
+  $('.socialLinks').addClass('hidden')
+  $('#challenges_list').addClass('hidden')
+  $('#challenge-content1').addClass('hidden')
+  $('#challenge-content2').addClass('hidden')
+  $('#diary-content3').addClass('hidden')
+  $('#diary-content4').addClass('hidden')
+  $('#show-footer').addClass('hidden')
 }
 
 const signOutFailure = (error) => {

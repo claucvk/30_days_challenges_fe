@@ -29,7 +29,7 @@
       <nav class="navbar">
         <div class="container-fluid">
           <ul class="nav navbar-nav">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign Up / Sign In<span class="caret"></span></a>
+            <li class=" dropdown" id="login"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign Up / Sign In<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
                   <form id="sign-up" class="profile">
@@ -43,7 +43,8 @@
                       <input type="submit" name="submit" value="Sign Up!">
                     </fieldset>
                   </form>
-                  <p id='signUpFail'></p>
+                  <p id="signUpFail"></p>
+                  <p id="signUpGood"></p>
                 </li>
                 <hr>
                 <li>
@@ -62,9 +63,9 @@
                 </li>
               </ul>
             </li>
-            <li><a href="#challenges_list">Challenges</a></li>
-            <li><a href="#new_diary">Diaries</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile<span class="caret"></span></a>
+            <li class="hidden" id="show-challenge"><a href="#challenges_list">Challenges</a></li>
+            <li class="hidden" id="show-diary"><a href="#new_diary">Diaries</a></li>
+            <li class="hidden dropdown" id="show-profile"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li>
                   <form id="change-password" class="profile">
@@ -91,17 +92,17 @@
                 </li>
               </ul>
             </li>
-            <li>
+            <li class="hidden socialLinks">
               <!-- Twitter -->
               <a href="http://twitter.com/share?url=<URL>&text=<TEXT>&via=<VIA>" target="_blank" class="share-btn twitter">
                 <i class="fa fa-twitter"></i></a>
           </li>
-            <li>
+            <li class="hidden socialLinks">
                 <!-- Google Plus -->
               <a href="https://plus.google.com/share?url=<BTN>" target="_blank" class="share-btn google-plus">
                   <i class="fa fa-google-plus"></i></a>
           </li>
-          <li>
+          <li class="hidden socialLinks">
             <!-- Reddit (url, title) -->
             <a href="http://reddit.com/submit?url=<URL>&title=<TITLE>" target="_blank" class="share-btn reddit">
                 <i class="fa fa-reddit"></i></a>
@@ -111,7 +112,7 @@
       </nav>
     </div>
     <!-- CREATE NEW CHALLENGE -->
-    <div class="content1">
+    <div class=" hidden content1" id="challenge-content1">
       <div id="challenges_list" class="container-fluid text-center">
         <h2 class="margin">New Challenge</h2>
         <p>Please fill all the fields to create a new challenge</p>
@@ -143,7 +144,7 @@
       </div>
     </div>
     <!-- CREATE NEW DIARY-->
-    <div class="content3">
+    <div class="hidden content3" id="diary-content3">
       <div id="new_diary" class="container-fluid text-center">
         <h2 class="margin">New Diary</h2>
         <p>Please fill all the fields to create a new diary</p>
@@ -180,7 +181,7 @@
     </div>
 
     <!-- ALL CHALLENGES UPDATE / DELETE -->
-    <div class="content2">
+    <div class="hidden content2" id="challenge-content2">
       <div id="challenges_list" class="container-fluid text-center">
         <h2 class="margin">Challenges</h2>
         <div class="flex-grid">
@@ -244,7 +245,7 @@
       </div>
     </div>
     <!-- ALL DIARIES UPDATE/ DELETE -->
-    <div class="content4">
+    <div class="hidden content4" id="diary-content4">
       <div id="diaries-list" class="container-fluid text-center">
         <h2 class="margin">Diaries</h2>
         <div class="flex-grid">
@@ -307,7 +308,7 @@
         </div>
       </div>
     </div>
-    <div class="footer">
+    <div class=" hidden footer" id="show-footer">
         <div id="#share" class="container-fluid text-center">
           <!-- Twitter -->
           <a href="http://twitter.com/share?url=<URL>&text=<TEXT>&via=<VIA>" target="_blank" class="share-btn twitter">
